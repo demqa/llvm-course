@@ -1,0 +1,37 @@
+digraph structs {
+    node [color=black, shape=box, style="rounded, filled"];
+    rankdir=LR;
+    front [fillcolor="#42AAFF",     label="FRONT = 1"];
+    back  [fillcolor="#42AAFF",     label="BACK = 1"];
+    free  [fillcolor="#42AAFF",     label="FREE = 1"];
+    sorted [fillcolor="#E34234",    label="SORTED = 1"];
+    size   [fillcolor="#E34234",    label="SIZE = 0"];
+    node [color=black, shape=record, style="rounded, filled"];
+
+    edge [style=invis, constraint=true];
+    node0 [fillcolor="#5035DE",label=" 0 | { <p> 0 | 0 | <n> 0}"];
+    node1 [fillcolor="#42AAFF",label=" 1 | { <p> -1 | 993 | <n> 2}"];
+    node0 -> node1;
+    node2 [fillcolor="#42AAFF",label=" 2 | { <p> -1 | 993 | <n> 3}"];
+    node1 -> node2;
+    node3 [fillcolor="#42AAFF",label=" 3 | { <p> -1 | 993 | <n> 4}"];
+    node2 -> node3;
+    node4 [fillcolor="#42AAFF",label=" 4 | { <p> -1 | 993 | <n> 0}"];
+    node3 -> node4;
+
+    edge [style=solid, constraint=false];
+    node1: <n> -> node2;
+
+    node2: <n> -> node3;
+
+    node3: <n> -> node4;
+
+
+
+    edge [style=bold, constraint=false];
+    front -> node1;
+    back  -> node1;
+    free  -> node1;
+}
+
+// system("dot dump -T png -o dump.png");
